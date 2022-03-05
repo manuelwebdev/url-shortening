@@ -99,17 +99,28 @@ body {
         grid-area: hero;
 
         svg {
+          width: 100%;
         }
       }
       .cta {
         grid-area: cta;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         h1 {
-          font-size: 3rem;
+          font-size: 2.75rem;
+          text-align: center;
+          line-height: 3.35rem;
+          margin-bottom: 1rem;
         }
         h3 {
-          font-size: 1rem;
+          width: 30ch;
+          font-size: 1.15rem;
           color: $gray-violet;
-          font-weight: 500;
+          font-weight: 400;
+          text-align: center;
+          margin-bottom: 2rem;
         }
         .ctaBtn {
           @include greenCta;
@@ -117,8 +128,38 @@ body {
           font-weight: 500;
         }
       }
-      .mainInput {
-        grid-area: input;
+      .inputWrapper {
+        .inputWrap {
+          grid-area: input;
+
+          padding: 1.5rem;
+          background-color: $dark-violet;
+          background-image: url("../../images/bg-shorten-mobile.svg");
+          background-repeat: no-repeat;
+          background-size: 60% 80%;
+          background-position: right top;
+          border-radius: 1rem;
+
+          display: flex;
+          flex-direction: column;
+          .urlInput {
+            height: 3rem;
+            border: none;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+            padding-left: 1rem;
+          }
+          .urlSubmit {
+            height: 3rem;
+            border: none;
+            background-color: $cyan;
+            border-radius: 0.5rem;
+            color: #ffffff;
+            font-weight: 700;
+          }
+        }
+        .shortenOutput {
+        }
       }
       .advStat {
         grid-area: stat;

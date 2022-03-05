@@ -81,6 +81,7 @@
           </h3>
           <a href="#" class="ctaBtn">Get Started</a>
         </div>
+
         <div class="heroImg">
           <svg xmlns="http://www.w3.org/2000/svg" width="733" height="482">
             <defs>
@@ -499,9 +500,22 @@
             </g>
           </svg>
         </div>
-        <div class="mainInput">
-          <input type="search" name="" id="" />
-          <input type="submit" value="" />
+        <div class="inputWrapper">
+          <div class="inputWrap">
+            <input
+              type="url"
+              class="urlInput"
+              placeholder="Shorten a link here..."
+              value=""
+            />
+            <input
+              type="submit"
+              value="Shorten It!"
+              class="urlSubmit"
+              onclick="handleSubmit()"
+            />
+          </div>
+          <div class="shortenOutput"></div>
         </div>
         <div class="advStat">
           <h2>Advanced Statistics</h2>
