@@ -11,7 +11,18 @@ const hamburgerClick = () => {
 const apiUrl = `https://api.shrtco.de/v2/`
 const urlInput = document.querySelector(".urlInput")
 const urlSubmit = document.querySelector("urlSubmit")
+const shortenOutput = document.querySelector(".shortenOut")
 
 const handleSubmit = () => {
   console.log(urlInput.value)
+  fetchShort(urlInput.value)
+}
+
+const fetchShort = async (apiQuery) => {
+  const res = await fetch(`${apiUrl}shorten?url=${apiQuery}`)
+  const data = await res.json()
+  const shortLink = data.result.short_link
+  console.log(shortLink)
+
+  shortenOutput.innerHTML = `<div>${shortLink}</div>`
 }
