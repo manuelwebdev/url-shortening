@@ -1,3 +1,6 @@
+:root {
+  font-family: $family;
+}
 body {
   .contentWrapper {
     .navigation {
@@ -23,6 +26,9 @@ body {
               background-color: lighten($gray, 24%);
               transition: all 0.2s;
             }
+            &.hamActive {
+              background-color: lighten($gray, 14%);
+            }
             i {
               color: $gray-violet;
               font-size: 28px;
@@ -35,6 +41,7 @@ body {
               position: absolute;
               background-color: $dark-violet;
               left: 5%;
+              top: 7rem;
               border-radius: 1rem;
 
               display: flex;
@@ -78,6 +85,50 @@ body {
       }
     }
     .mainContent {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto auto;
+      grid-template-areas:
+        "hero"
+        "cta"
+        "input"
+        "stat"
+        "cards"
+        "boost";
+      .heroImg {
+        grid-area: hero;
+
+        svg {
+        }
+      }
+      .cta {
+        grid-area: cta;
+        h1 {
+          font-size: 3rem;
+        }
+        h3 {
+          font-size: 1rem;
+          color: $gray-violet;
+          font-weight: 500;
+        }
+        .ctaBtn {
+          @include greenCta;
+          text-decoration: none;
+          font-weight: 500;
+        }
+      }
+      .mainInput {
+        grid-area: input;
+      }
+      .advStat {
+        grid-area: stat;
+      }
+      .cardWrap {
+        grid-area: cards;
+      }
+      .boost {
+        grid-area: boost;
+      }
     }
     .foot {
     }
