@@ -1,70 +1,89 @@
 body {
-  background-color: $dark-blue;
-  main {
-    width: 100%;
-    height: 100vh;
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .card {
-      max-width: 400px;
-      width: 100%;
-      padding: 2rem;
-      background-color: $dark-grayish-blue;
-      border-radius: 15px;
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      .adviceNumber,
-      .advice {
-        margin-bottom: 1.5rem;
-      }
-      .adviceNumber {
-        color: $neon-green;
-        font-size: 12px;
-        font-family: $family;
-        font-weight: 400;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-      }
-      .advice {
-        color: $light-cyan;
-        font-family: $family;
-        font-size: 20px;
-        font-weight: 400;
-        text-align: center;
-      }
-      .divider {
-        margin-bottom: -40px;
-        svg {
-        }
-      }
-      .adviceBtn {
+  .contentWrapper {
+    .navigation {
+      .mobileNav {
+        padding: 3rem 1.5rem;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-
-        background-color: $neon-green;
-        border: none;
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-
-        position: relative;
-        bottom: -70px;
-        transition: all 0.4s;
-        &:hover {
-          background-color: lighten($neon-green, 5%);
-          box-shadow: 0px 0px 45px -6px rgba(82, 255, 168, 1);
-          -webkit-box-shadow: 0px 0px 45px -6px rgba(82, 255, 168, 1);
-          -moz-box-shadow: 0px 0px 45px -6px rgba(82, 255, 168, 1);
-          transition: all 0.3s;
+        .logo {
         }
-        svg {
+        .hamburger {
+          .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            &:hover {
+              background-color: lighten($gray, 24%);
+              transition: all 0.2s;
+            }
+            i {
+              color: $gray-violet;
+              font-size: 28px;
+            }
+          }
+          .menuWrap {
+            .menu {
+              padding: 2rem;
+              width: 90%;
+              position: absolute;
+              background-color: $dark-violet;
+              left: 5%;
+              border-radius: 1rem;
+
+              display: flex;
+              flex-direction: column;
+              .link {
+                color: #ffffff;
+                text-decoration: none;
+                font-family: $family;
+                font-size: 21px;
+                font-weight: 500;
+                text-align: center;
+                margin-bottom: 1.25rem;
+              }
+              .divider {
+                border-top: 1px solid lighten($dark-violet, 10%);
+                width: 100%;
+                margin: 0 0 1.25rem 0;
+              }
+              .signUp {
+                @include greenCta;
+                margin-top: 0.75rem;
+              }
+            }
+          }
+        }
+      }
+      .deskNav {
+        display: none;
+        .left {
+          .logo {
+          }
+          .link {
+          }
+        }
+        .right {
+          .link {
+          }
+          .signUp {
+          }
         }
       }
     }
+    .mainContent {
+    }
+    .foot {
+    }
   }
+}
+
+.disabled {
+  display: none;
 }
