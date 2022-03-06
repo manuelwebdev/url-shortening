@@ -97,6 +97,8 @@ body {
         "boost";
       .heroImg {
         grid-area: hero;
+        padding: 1rem 0 1rem 1rem;
+        margin-bottom: 2rem;
 
         svg {
           width: 100%;
@@ -267,13 +269,63 @@ body {
       }
       .boost {
         grid-area: boost;
+        height: 400px;
+        background-color: $dark-violet;
+        background-image: url("../../images/bg-boost-mobile.svg");
+        background-position: top right;
+        background-size: cover;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h2 {
+          color: #ffffff;
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
+        .ctaBtn {
+          @include greenCta;
+          text-decoration: none;
+          font-weight: 500;
+        }
       }
     }
     .foot {
+      background-color: $very-dark-violet;
+      padding: 3rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .logo {
+        margin-bottom: 3rem;
+      }
+      .links {
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2 {
+          color: #ffffff;
+          margin-bottom: 1rem;
+        }
+        .link {
+          margin-bottom: 0.75rem;
+          color: $gray-violet;
+          text-decoration: none;
+        }
+      }
+      .social {
+        max-width: 175px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
     }
   }
 }
 
 .disabled {
   display: none;
+  opacity: 0;
 }
