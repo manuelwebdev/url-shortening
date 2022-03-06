@@ -37,16 +37,15 @@ const fetchShort = async (apiQuery) => {
           <span class="original">${item.original}</span>
           <div class="linkGroup">
               <span class="shortCode" id="${i}">${item.shortUrl}</span>
-              <button class="copyBtn" onclick="handleCopy(${i})">Copy</button>
+              <button class="copyBtn" onclick="handleCopy('${item.shortUrl}')">Copy</button>
           </div>
       </div>`
     })
     .join("")
 }
 
-const handleCopy = (id) => {
-  let copyText = document.querySelector(`#${id}`)
-  navigator.clipboard.writeText(copyText).then(
+const handleCopy = (shortUrl) => {
+  navigator.clipboard.writeText(shortUrl).then(
     function () {
       console.log("Async: Copying to clipboard was successful!", shortUrl)
     },
