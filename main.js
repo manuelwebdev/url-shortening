@@ -47,7 +47,7 @@ const fetchShort = async (apiQuery) => {
 const handleCopy = (shortUrl) => {
   navigator.clipboard.writeText(shortUrl).then(
     function () {
-      console.log("Async: Copying to clipboard was successful!", shortUrl)
+      console.log("Copying to clipboard was successful!", shortUrl)
     },
     function (err) {
       console.error("Async: Could not copy text: ", err)

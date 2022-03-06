@@ -2,7 +2,6 @@
   font-family: $family;
 }
 body {
-  background-color: lighten($gray, 20%);
   .contentWrapper {
     .navigation {
       .mobileNav {
@@ -105,6 +104,7 @@ body {
       }
       .cta {
         grid-area: cta;
+        margin-bottom: 10rem;
 
         display: flex;
         flex-direction: column;
@@ -130,11 +130,13 @@ body {
         }
       }
       .inputWrapper {
+        background-color: lighten($gray, 20%);
         padding: 1rem;
         .inputWrap {
           grid-area: input;
 
           padding: 1.5rem;
+          margin-top: -6rem;
           margin-bottom: 2rem;
           background-color: $dark-violet;
           background-image: url("../../images/bg-shorten-mobile.svg");
@@ -198,9 +200,70 @@ body {
       }
       .advStat {
         grid-area: stat;
+        background-color: lighten($gray, 20%);
+
+        padding-bottom: 6rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        :is(h2, h4) {
+          text-align: center;
+        }
+
+        h2 {
+          font-size: 1.85rem;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+        }
+        h4 {
+          width: 30ch;
+          color: $gray-violet;
+          font-size: 1rem;
+          font-weight: 500;
+        }
       }
       .cardWrap {
         grid-area: cards;
+        background-color: lighten($gray, 20%);
+        padding: 1rem 1rem 4rem 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .card {
+          background-color: #ffffff;
+          padding: 0 2rem 3rem 2rem;
+          border-radius: 0.5rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .icon {
+            width: 80px;
+            height: 80px;
+            margin: -2.2rem 0 2rem 0;
+            background-color: $dark-violet;
+            border-radius: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            svg {
+            }
+          }
+          h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+          }
+          p {
+            width: 28ch;
+            text-align: center;
+          }
+        }
+        .divider {
+          width: 8px;
+          height: 100px;
+          border-right: 4px solid $cyan;
+          border-left: 4px solid $cyan;
+        }
       }
       .boost {
         grid-area: boost;
