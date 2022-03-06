@@ -11,18 +11,47 @@ const hamburgerClick = () => {
 const apiUrl = `https://api.shrtco.de/v2/`
 const urlInput = document.querySelector(".urlInput")
 const urlSubmit = document.querySelector("urlSubmit")
-const shortenOutput = document.querySelector(".shortenOut")
+const shortenOutput = document.querySelector(".shortenOutput")
+
+// store array of short links
+const shortenLinks = []
 
 const handleSubmit = () => {
-  console.log(urlInput.value)
+  //   console.log(urlInput.value)
   fetchShort(urlInput.value)
 }
 
 const fetchShort = async (apiQuery) => {
   const res = await fetch(`${apiUrl}shorten?url=${apiQuery}`)
   const data = await res.json()
-  const shortLink = data.result.short_link
-  console.log(shortLink)
+  //   console.log(data)
 
-  shortenOutput.innerHTML = `<div>${shortLink}</div>`
+  shortenLinks.push({
+    original: apiQuery,
+    shortUrl: data.result.full_short_link,
+  })
+  //   console.log(shortenLinks)
+  shortenOutput.innerHTML = shortenLinks
+    .map((item, i) => {
+      return `<div class="shortLinkGroup">
+          <span class="original">${item.original}</span>
+          <div class="linkGroup">
+              <span class="shortCode" id="${i}">${item.shortUrl}</span>
+              <button class="copyBtn" onclick="handleCopy(${i})">Copy</button>
+          </div>
+      </div>`
+    })
+    .join("")
+}
+
+const handleCopy = (id) => {
+  let copyText = document.querySelector(`#${id}`)
+  navigator.clipboard.writeText(copyText).then(
+    function () {
+      console.log("Async: Copying to clipboard was successful!", shortUrl)
+    },
+    function (err) {
+      console.error("Async: Could not copy text: ", err)
+    }
+  )
 }

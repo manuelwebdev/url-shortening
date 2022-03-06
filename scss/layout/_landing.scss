@@ -2,6 +2,7 @@
   font-family: $family;
 }
 body {
+  background-color: lighten($gray, 20%);
   .contentWrapper {
     .navigation {
       .mobileNav {
@@ -129,10 +130,12 @@ body {
         }
       }
       .inputWrapper {
+        padding: 1rem;
         .inputWrap {
           grid-area: input;
 
           padding: 1.5rem;
+          margin-bottom: 2rem;
           background-color: $dark-violet;
           background-image: url("../../images/bg-shorten-mobile.svg");
           background-repeat: no-repeat;
@@ -159,6 +162,38 @@ body {
           }
         }
         .shortenOutput {
+          display: flex;
+          flex-direction: column;
+          .shortLinkGroup {
+            margin-bottom: 2rem;
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            :is(.original, .linkGroup) {
+              padding: 1rem;
+              font-size: 1rem;
+              font-weight: 500;
+            }
+            .original {
+              border-bottom: 1px solid #eee;
+            }
+            .linkGroup {
+              display: flex;
+              flex-direction: column;
+              .shortCode {
+                color: $cyan;
+                margin-bottom: 1rem;
+              }
+              .copyBtn {
+                border: none;
+                background-color: $cyan;
+                padding: 1rem 3rem;
+                border-radius: 0.5rem;
+                color: #ffffff;
+              }
+            }
+          }
         }
       }
       .advStat {
