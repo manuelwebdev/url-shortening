@@ -2,6 +2,8 @@
 const mobileMenu = document.querySelector(".menuWrap")
 const hamburger = document.querySelector(".icon")
 
+const copyBtn = document.getElementsByClassName("copyBtn")
+
 const hamburgerClick = () => {
   mobileMenu.classList.toggle("disabled")
   hamburger.classList.toggle("hamActive")
@@ -36,15 +38,15 @@ const fetchShort = async (apiQuery) => {
       return `<div class="shortLinkGroup">
           <span class="original">${item.original}</span>
           <div class="linkGroup">
-              <span class="shortCode" id="${i}">${item.shortUrl}</span>
-              <button class="copyBtn" onclick="handleCopy('${item.shortUrl}')">Copy</button>
+              <span class="shortCode">${item.shortUrl}</span>
+              <button id="${i}" class="copyBtn" onclick="handleCopy('${item.shortUrl}', ${i})">Copy</button>
           </div>
       </div>`
     })
     .join("")
 }
 
-const handleCopy = (shortUrl) => {
+const handleCopy = (shortUrl, i) => {
   navigator.clipboard.writeText(shortUrl).then(
     function () {
       console.log("Copying to clipboard was successful!", shortUrl)
@@ -53,4 +55,6 @@ const handleCopy = (shortUrl) => {
       console.error("Async: Could not copy text: ", err)
     }
   )
+  document.getElementById(`${i}`).textContent = "Copied"
+  document.getElementById(`${i}`).classList.add("copied")
 }

@@ -329,3 +329,7 @@ body {
   display: none;
   opacity: 0;
 }
+
+.copied {
+  border: 3px solid $dark-violet !important;
+}
